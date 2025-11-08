@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: wave 2s infinite;
+            display: inline-block;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(20deg);
+            }
+            75% {
+                transform: rotate(-20deg);
+            }
+        }
+
+        .time {
+            margin-top: 30px;
+            font-size: 1em;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">👋</div>
+        <h1>Hello!</h1>
+        <p>Welcome to your new web application. This site is live and ready to use.</p>
+        <button class="button" onclick="showMessage()">Click Me</button>
+        <div class="time" id="time"></div>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert('Thanks for visiting! 🎉');
+        }
+
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').textContent = now.toLocaleString();
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
